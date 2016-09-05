@@ -36,18 +36,10 @@ function createSnowMan() {
         .enter()
         //Append circle to svg element
         .append("circle")
-        .attr("cy", function (d) { // 'd' - is the one object from array like structure
-            return d.y;
-        })
-        .attr("cx", function (d) {
-            return d.x;
-        })
-        .attr("r", function (d) {
-            return d.r;
-        })
-        .style("fill", function (d) {
-            return d.color
-        });
+        .attr("cy", function (d) { return d.y; }) // 'd' - is the one object from array like structure
+        .attr("cx", function (d) { return d.x; })
+        .attr("r", function (d) { return d.r; })
+        .style("fill", function (d) { return d.color });
 
     // Now we draw nous for our snowman. This will be simples triangle.
 

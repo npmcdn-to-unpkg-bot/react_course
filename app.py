@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-   return render_template('svg_example.html')
+    return render_template('intro_react.html')
 
 if __name__ == "__main__":
     app.run()
