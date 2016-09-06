@@ -12,19 +12,50 @@
 <body>
 <div id="content"></div>
     <script type="text/babel" >
-        // Create global variable
-        var user = { name: "Master Yoda" };
-
-        var ContactsApp  = React.createClass({
-            render: function(){
-                return (
-                        // Read got variable from the 'this.props'. In 'this.props' saved all parameters.
-                        <div className="contactsApp">Hello {this.props.user.name}!</div>
-                );
+        // Create the component with text area for input text for search and assign class for div element
+        var SearchBar = React.createClass({
+            render: function () {
+                return(
+                        <div className="searchBar">
+                            <input type="text"/>
+                        </div>
+                )
             }
         });
-        // Pass variable to component
-        ReactDOM.render(<ContactsApp user={ user }/>, document.getElementById("content"))
+        // Create the component with div element for one contact
+        var Contact = React.createClass({
+            render: function () {
+                return(
+                        <div className="contactName">
+                            <h3>Master Yoda</h3>
+                            <p>+48777777777</p>
+                        </div>
+                )
+            }
+        });
+        // Create the component for all contacts
+        var ContactsList = React.createClass({
+            render: function () {
+                // Insert Contact component in ContactList
+                return(
+                        <div className="contactList">
+                            <Contact/>
+                        </div>
+                )
+            }
+        });
+        // Create the main component and return all components created early
+        var ContactsApp  = React.createClass({
+                render: function () {
+                    return(
+                            <div className="contactApp">
+                                <SearchBar/>
+                                <ContactsList/>
+                            </div>
+                    )           
+                }
+        });
+        ReactDOM.render(<ContactsApp/>, document.getElementById("content"))
     </script>
 </body>
 </html>
