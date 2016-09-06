@@ -12,14 +12,19 @@
 <body>
 <div id="content"></div>
     <script type="text/babel" >
+        // Create global variable
+        var user = { name: "Master Yoda" };
+
         var ContactsApp  = React.createClass({
             render: function(){
                 return (
-                        <div className="contactsApp">Hello Master Yoda!</div>
+                        // Read got variable from the 'this.props'. In 'this.props' saved all parameters.
+                        <div className="contactsApp">Hello {this.props.user.name}!</div>
                 );
             }
         });
-        ReactDOM.render(<ContactsApp/>, document.getElementById("content"))
+        // Pass variable to component
+        ReactDOM.render(<ContactsApp user={ user }/>, document.getElementById("content"))
     </script>
 </body>
 </html>
